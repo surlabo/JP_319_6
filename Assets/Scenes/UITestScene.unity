@@ -278,19 +278,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 358529475}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 810563614}
-        m_TargetAssemblyTypeName: StartManuController, Assembly-CSharp
-        m_MethodName: DeactivateStartManu
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &358529475
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -467,6 +455,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 738447305}
   m_CullTransparentMesh: 1
+--- !u!1 &796135487
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 796135488}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &796135488
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 796135487}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1148.571, y: 580.3041, z: 4.298164}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &810563613
 GameObject:
   m_ObjectHideFlags: 0
@@ -496,7 +515,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2b7ad4b070d8d246938744b18f141a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startBtn: {fileID: 358529474}
   startManuPanel: {fileID: 944885355}
+  inGamePanel: {fileID: 320142185}
 --- !u!4 &810563615
 Transform:
   m_ObjectHideFlags: 0
@@ -1357,3 +1378,4 @@ SceneRoots:
   - {fileID: 1941341856}
   - {fileID: 1677624467}
   - {fileID: 1535178362}
+  - {fileID: 796135488}
