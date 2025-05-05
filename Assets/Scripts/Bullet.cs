@@ -1,16 +1,17 @@
+using System.Collections;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    
     void Start()
     {
-        
+        StartCoroutine(DestoryBullet());
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator DestoryBullet()
     {
-        
+        yield return new WaitForSeconds(5);
+        Destroy(gameObject);
     }
 }
