@@ -1,35 +1,62 @@
 using System.Collections;
+using Unity.Collections;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     private float stopWatchCount = 0;
-    private Coroutine stopWatchCoroutine;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        stopWatchCoroutine = StartCoroutine(StopWatch());
-        
+        int n = 0;
+        var cordinates = new Cordinates { x = 0, y = 0 };
+
+        TestOne(out n);
+        TestTwo(cordinates);
+
+        Debug.Log(n);
+        Debug.Log(cordinates.x + " - " + cordinates.y);
     }
+
+
+    private bool TestOne(out int x)
+    {
+        x = 10;
+        return true;
+    }
+
+    private void TestTwo(Cordinates cordinates) 
+    {
+        cordinates.x = 20;
+    }
+
+
+    class Cordinates
+    {
+        public int x; public int y;
+    }
+
+
+
+
+
+
+
 
     private IEnumerator StopWatch()
     {
+
         while (true)
         {
-            yield return null;
             stopWatchCount += Time.deltaTime;
+            yield return null;
             Debug.Log(stopWatchCount);
+            yield return null;
         }
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            StopCoroutine(stopWatchCoroutine);
-        }
-    }
+   
 
    
 }
+
