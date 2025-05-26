@@ -1,39 +1,17 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed;
-    public float jumpForce;
-    public float maxY, minY;
+    [SerializeField] private float moveSpeed = 5;
+    [SerializeField] private float rotateSpeed = 100;
 
-    private Rigidbody rb;
-    
 
-    void Start()
+    private void Update()
     {
-
-        rb = GetComponent<Rigidbody>();
+        transform.Translate(0, 0, Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime);
+        transform.Rotate(0, Input.GetAxis("Horizontal") * rotateSpeed * Time.deltaTime, 0);
     }
-
-    void Update()
-    {
-        transform.Translate(speed * Time.deltaTime, 0, 0);
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        { 
-            rb.AddForce(0, jumpForce, 0);
-        }
-        
-
-        if (transform.position.y > maxY || transform.position.y < minY)
-        {
-            Debug.Log("out of bound");
-            DeathController.Instance.Death();
-        }
-    }
-
-
-   
 
 
 }
