@@ -18,31 +18,20 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        // Ground check using raycast
-        _isGrounded = Physics.Raycast(transform.position, Vector3.down, groundCheckDistance, groundMask);
-
-        Debug.DrawRay(transform.position, Vector3.down * groundCheckDistance, Color.green);
+        _isGrounded = Physics.Raycast(transform.position + Vector3.up * .1f, Vector3.down, groundCheckDistance, groundMask);
+        transform.Rotate(Vector3.up * Input.GetAxis("Horizontal") * rotateSpeed * Time.deltaTime);
     }
 
     private void FixedUpdate()
     {
+
+        
         if (_isGrounded)
         {
-            // Move
             float moveInput = Input.GetAxis("Vertical");
             Vector3 moveDirection = transform.forward * moveInput * moveSpeed;
             _rb.linearVelocity = new Vector3(moveDirection.x, _rb.linearVelocity.y, moveDirection.z);
 
-            // Rotate
-            float rotateInput = Input.GetAxis("Horizontal");
-            Quaternion deltaRotation = Quaternion.Euler(0f, rotateInput * rotateSpeed * Time.fixedDeltaTime, 0f);
-            _rb.MoveRotation(_rb.rotation * deltaRotation);
-        }
-        else
-        {
-            // Keep falling smoothly without horizontal control
-            _rb.linearVelocity = new Vector3(0, _rb.linearVelocity.y, 0);
         }
     }
 }
-
