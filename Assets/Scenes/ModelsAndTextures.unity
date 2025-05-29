@@ -728,7 +728,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _body: {fileID: 1968127333}
   _anim: {fileID: 346169395}
-  _jumpForce: 300
+  _jumpForce: 5
   _detectionDistance: 0.3
   _layerMask:
     serializedVersion: 2
